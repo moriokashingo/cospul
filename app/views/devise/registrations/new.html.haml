@@ -1,0 +1,32 @@
+.login-page
+  = form_for(resource, as: resource_name, html: {class: 'login-form'},url: registration_path(resource_name)) do |f|
+    %h2 Sign up
+    = render "devise/shared/error_messages", resource: resource
+    #icon__box
+      #upload__file__previews
+        = image_tag 'no_icon.png', id: 'icon__img__prev', class: 'edit__item__images__image',data: {image: 0}
+        = f.file_field :icon ,name: "user[image]",class: '',id: 'icon__img',accept: "image/*"
+    .txtb
+      = f.text_field :name, autofocus: true, maxlength: "6" , class: "input name"
+      %span{"data-placeholder" => "Name (6 characters maximum"}
+    .txtb
+      = f.email_field :email, autofocus: true, autocomplete: "email", class: "input mail"
+      %span{"data-placeholder" => "Email"}
+    .txtb
+      = f.password_field :password, autocomplete: "new-password",class: "input password"
+      %span{"data-placeholder" => "password"}
+    .txtb
+      = f.password_field :password_confirmation, autocomplete: "new-password" ,class: "input cpassword"
+      %span{"data-placeholder" => "password_confirmation "}
+    .actions
+      = f.submit "Sign up" , class: "logbtn"
+  :javascript
+    $(".txtb input").on("focus",function(){
+      $(this).addClass("focus");
+    });
+
+    $(".txtb input").on("blur",function(){
+      if($(this).val() == "")
+      $(this).removeClass("focus");
+    });
+  = render "devise/shared/links"
