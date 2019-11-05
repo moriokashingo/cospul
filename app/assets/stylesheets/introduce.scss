@@ -1,0 +1,44 @@
+// Place all the styles related to the intro controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+.cospul_intoduce_block {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  p {
+    display: inline-block;
+    font-size: 60px;
+    font-family: 'Great Vibes', cursive;
+    padding: 0;
+    margin: 0;
+  }
+  &__one {
+    background: #212E32;
+    color: #fff;
+    z-index: 100;
+  }
+  &__two {
+    background: #85937A;
+    z-index: 200;
+  }
+  &__three {
+    background: #008080;
+    color: #fff;
+    z-index: 300;
+  }
+  &__four{
+    background: #CD5C5C;
+    z-index: 400;
+  }
+  &__five {
+    background: #8B4513;
+    color: #fff;
+    z-index: 500;
+  }
+
+}
