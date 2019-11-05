@@ -1,0 +1,91 @@
+= render partial: "shared/aside"
+.show__cospul
+  .show__cospul__upper
+    .show__cospul__image
+      .select__carousel
+        - @cospul.cospul_pictures.each_with_index do |cospul, i|
+          .owl__dot{data: {image: i}}
+            = image_tag cospul.picture.url
+      .owl__carousel
+        .owl__carousel__inner
+          - @cospul.cospul_pictures.each_with_index do |cospul, i|
+            .owl__item{class: i}
+              = image_tag cospul.picture.url
+
+    .show__cospul__details
+      %h2 コーディネートアイテム
+      .show__cospul__details__inner
+        - if @cospul_detail.present?
+          .head.show__cospul__details__box
+            %p.show__cospul__details__text 帽子について
+            - if @cospul_detail.head.present?
+              - if @cospul_detail.head.include?("https")
+                = link_to '帽子の商品サイト', "#{@cospul_detail.head}", method: :get
+              - else
+                = @cospul_detail.head
+          .top.show__cospul__details__box
+            %p.show__cospul__details__text トップスについて
+            - if @cospul_detail.top.present?
+              - if @cospul_detail.top.include?("https")
+                = link_to 'トップスの商品サイト', "#{@cospul_detail.top}", method: :get
+              - else
+                = @cospul_detail.top
+          .inner.show__cospul__details__box
+            %p.show__cospul__details__text インナーについて
+            - if @cospul_detail.inner.present?
+              - if @cospul_detail.inner.include?("https")
+                = link_to 'インナーの商品サイト', "#{@cospul_detail.inner}", method: :get
+              - else
+                = @cospul_detail.inner
+          .bottom.show__cospul__details__box
+            %p.show__cospul__details__text ボトムスについて
+            - if @cospul_detail.bottom.present?
+              - if @cospul_detail.bottom.include?("https")
+                = link_to 'ボトムスの商品サイト', "#{@cospul_detail.bottom}", method: :get
+              - else
+                = @cospul_detail.bottom
+          .shoe.show__cospul__details__box
+            %p.show__cospul__details__text 靴について
+            - if @cospul_detail.shoe.present?
+              - if @cospul_detail.shoe.include?("https")
+                = link_to '靴の商品サイト', "#{@cospul_detail.shoe}", method: :get
+              - else
+                = @cospul_detail.shoe
+          .accessroies.show__cospul__details__box
+            %p.show__cospul__details__text その他のアイテムについて
+            - @accessories.each do |accessory|
+              .acs
+                - if accessory.name.include?("https")
+                  = link_to 'その他のアイテムの商品サイト', "#{accessory.name}", method: :get
+                - else
+                  その他の情報
+                  = accessory.name
+          .watch__user_action
+            .good_btn
+              = render partial:'likes/like',locals: { cospul: @cospul }
+            .url_copy
+              %input#copyTarget{:readonly => "readonly", :type => "text", :value => "https://cospul.herokuapp.com/cospuls/"+"#{@cospul.id}"}/
+              %button{:onclick => "copyToClipboard()",:class => "btn",id: "show_url_btn" } このcospulのURLをコピー
+  .show__cospul__lower
+    .show__cospul__text
+      .show__cospul__text__title.mt30
+        = @cospul.title
+      .show__cospul__text__content.mt30
+        = @cospul.content
+      .show__cospul__text__user.mt30
+        %span 投稿者
+        = image_tag("#{@cospul.user.image.url}", id: "icon")
+        = @cospul.user.name
+      .show__cospul__text__tag
+      - if @cospul.tags.present?
+        - @cospul.tags.each do |tag|
+          .chip
+            = link_to "#{tag.name}","/tags/#{tag.id}",method: :get
+    .show__cospul__author__action.mt30
+      - if user_signed_in? && current_user.id == @cospul.user_id
+        %ul
+          %li
+            = link_to '編集', "/cospuls/#{@cospul.id}/edit", class: "btn btn-dark btn-sm ", method: :get
+          %li
+            = link_to '削除', "/cospuls/#{@cospul.id}",class: "btn btn-dark btn-sm ", method: :delete
+#ss ⬆️
