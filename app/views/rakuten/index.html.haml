@@ -1,0 +1,28 @@
+.rakuten__box
+  .rakuten__box__search
+    %h3 楽天検索
+    %p アイテムの詳細やリンクを検索する事ができます
+    = form_tag  :rakuten_index, method: :get do
+      = label_tag :keyword, 'キーワード検索'
+      = text_field_tag 'keyword', params[:keyword],class: 'cospul-text'
+      = submit_tag "検索"
+  .rakuten__box__result
+    %table
+      %thead
+        %tr
+          %th 画像
+          %th 商品名
+          %th 価格
+      %tbody
+        .rakuten__box__result__lists
+        - if @items.present?
+          - @items.each do |item|
+            %tr
+              %td
+                - if item.small_image_urls.present?
+                  =image_tag "#{item.small_image_urls[0]}"
+              %td= link_to item.name, "#{item.url}"
+              %td
+                = number_with_delimiter(item.price)
+                円
+
