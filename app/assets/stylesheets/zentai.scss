@@ -1,0 +1,49 @@
+*{
+  margin: 0;
+  padding:0;
+  text-decoration: none;
+  font-family: montserrat;
+  box-sizing: border-box;
+}
+
+body{
+  color :#584e4a;
+}
+
+html,body{
+  height: 100%;
+  overflow: hidden;
+}
+
+.input{
+  font-size: 15px;
+  color: #333;
+  border: none;
+  width:100%;
+  outline:none;
+  background:none;
+  padding:0 5px;
+  height:40px;
+}
+
+.hidden{
+  display:none
+}
+
+.mt30{
+  margin-top: 30px !important;
+}
+
+.rakuten_image{
+  width: 80px;
+  height: 80px;
+}
+
+#copyTarget{
+  display: none;
+}
+
+.iine__button{
+  color: rgb(255, 0, 119);
+  font-size: 20px;
+}
