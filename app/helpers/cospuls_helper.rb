@@ -1,0 +1,2 @@
+module CospulsHelper
+end

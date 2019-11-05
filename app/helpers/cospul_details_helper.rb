@@ -1,0 +1,2 @@
+module CospulDetailsHelper
+end
