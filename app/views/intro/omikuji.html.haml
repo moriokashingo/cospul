@@ -1,0 +1,8 @@
+.omikuji__body
+  .omikuji__body__contents
+    .omikuji__body__title
+      %h2
+        もう衣装なんてスクロールして適当に決めたらいいやん
+    .omikuji__body__inner
+      - @cospul_pictures.each do |picture|
+        = image_tag picture.picture.url, class: 'omikuji',data: {id: "#{picture.cospul_id}"}
