@@ -1,0 +1,45 @@
+.form-body
+  .cospul-detail__create__form
+    %h2 Cospul's details
+    = form_with(model: [@cospul,@cospul_detail] ,url: cospul_cospul_details_path, local: true) do |f|
+      .cospul-detail__text__form
+        %p 商品のブランドや情報、商品購入リンク等を記入してください。
+        = f.text_field :head, placeholder: '帽子の詳細を入力してください。',class: 'mt30'
+        = f.text_field :top, placeholder: 'トップスの詳細を入力してください。',class: 'mt30'
+        = f.text_field :inner, placeholder: 'インナーの詳細を入力してください。',class: 'mt30'
+        = f.text_field :bottom, placeholder: 'ボトムスの詳細を入力してください。',class: 'mt30'
+        = f.text_field :shoe, placeholder: '靴の情報を入力してください。',class: 'mt30'
+        .accessories_list
+          #accessories-add
+            %p.mt30 アクセサリ等、他のアイテムを追加する場合はこちらをクリックしてください。
+          = f.fields_for :accessories, html: {id: "acz"} do |i|
+            .a
+        = f.submit '投稿する',type: "submit", class: "btn btn--block"
+    .rakuten__box
+      .rakuten__box__search
+        %h3 楽天検索
+        %p アイテムの詳細やリンクを検索する事ができます
+        = form_tag  :new_cospul_cospul_detail, method: :get do
+          = label_tag :keyword, 'キーワード検索'
+          = text_field_tag 'keyword', params[:keyword],class: 'cospul-text'
+          = submit_tag "検索"
+      .rakuten__box__result
+        %table
+          %thead
+            %tr
+              %th 画像
+              %th 商品名
+              %th 価格
+          %tbody
+            .rakuten__box__result__lists
+            - if @items.present?
+              - @items.each do |item|
+                %tr
+                  %td
+                    - if item.small_image_urls.present?
+                      =image_tag "#{item.small_image_urls[0]}"
+                  %td= link_to item.name, "#{item.url}"
+                  %td
+                    = number_with_delimiter(item.price)
+                    円
+
