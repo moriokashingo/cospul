@@ -1,0 +1,12 @@
+= render partial: "shared//aside"
+.content
+  .content_inner
+    .chip.chip_title
+      = @name 
+      の投稿一覧
+    .tag_contents
+      - if @cospuls.present?
+        - @cospuls.each do |cospul|
+          = render partial: "shared//cospul2", locals: { cospul: cospul }
+      - else
+        まだ投稿はありません
