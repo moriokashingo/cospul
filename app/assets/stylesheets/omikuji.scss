@@ -1,0 +1,97 @@
+
+// PC用
+@media all and (min-width:769px){
+  .omikuji__body{
+    height:100vh;
+    width:100vw;
+    background-image: url("psychedelic-628494_1920.jpg");
+    background-size:cover;
+    text-align: center;
+    &__inner{
+      width: 400px;
+      height: 680px;
+      background-color: #f0f0f0;
+      border-radius: 10px;
+      position: relative;
+      overflow: hidden;
+      margin: 0 auto;
+      text-align: initial;
+      img:first-child{
+        display:inline;
+      }
+    }
+    &__title h2 {
+      background-color:yellow;
+      font-size: 300%;
+      margin: 0;
+      margin-bottom: 20px;
+    }
+  }
+  .omikuji{
+    position: absolute;
+    display:none;
+    height: 100%;
+    width: 100%;
+    img{
+      position: absolute;
+      top:0;
+      left:0;
+    }
+  }
+
+
+}
+
+  //モバイル用
+
+  @media all and (max-width:768px){
+    .omikuji__body{
+      height:100%;
+      width:100%;
+      background-image: url("psychedelic-628494_1920.jpg");
+      background-size: contain;
+      text-align: center;
+
+      }
+      
+      .omikuji__body__inner{
+        width:300px;
+        height:199px;
+        background-color: #f0f0f0;
+        border-radius: 10px;
+        position: relative;
+        overflow: hidden;
+        margin: 0 auto;
+        text-align: initial;
+      }
+    
+      .omikuji{
+        display:none;
+        height: 100%;
+        width: 100%;
+      }
+    
+      .omikuji__body__inner img:first-child{
+        display:inline;
+      }
+    
+      .omikuji__body__title h2{
+        background-color:yellow;
+        font-size: 200%;
+      }
+
+        #copyTarget{
+          display:none;
+        }
+
+      .omikuji img{
+        position: absolute;
+        top:0;
+        left:0;
+      } 
+
+      .omikuji__body__contents{
+        padding: 25% 0;
+      }
+      
+      }
