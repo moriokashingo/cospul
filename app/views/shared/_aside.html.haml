@@ -1,0 +1,50 @@
+%aside
+  - if user_signed_in?
+    %ul
+      %li
+        = link_to "/cospuls", method: :get do
+          %i.fa.fa-home.fa-lg
+          TOP PAGE
+      %li
+        = link_to new_cospul_path, method: :get do
+          %i.fas.fa-tshirt.fa-lg
+          NEW POST
+      %li
+        = link_to destroy_user_session_path, method: :delete do
+          %i.fas.fa-sign-out-alt.fa-lg
+          LOG OUT
+      %li
+        = link_to "/like/#{current_user.id}", method: :get do
+          %i.fa.fa-heart.fa-lg
+          LIKE's LIST
+      %li
+        %span
+        = image_tag("#{current_user.image.url}", id: "icon")
+        = current_user.name
+    %button
+      %i.menu_open.fa.fa-bars.fa-lg
+
+
+  - else
+    %ul
+      %li
+        - if action_name == "show"
+          .home
+            = link_to "/cospuls", method: :get do
+              TOP PAGE
+        - else
+          .none
+      %li
+        = link_to user_session_path, method: :get do
+          %i.fas.fa-person-booth.fa-lg
+          LOG IN
+      %li
+        = link_to new_user_registration_path, method: :get do
+          %i.fa.fas.fa-edit.fa-lg
+          SIGN UP
+      %li
+        = link_to intro_show_path , method: :get do
+          %i.fas.fa-th-large.fa-lg
+          intoduce
+    %button
+      %i.menu_open.fa.fa-bars.fa-lg

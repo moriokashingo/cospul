@@ -1,0 +1,38 @@
+// ---------------------aside--------------
+aside {
+  background-color: rgba(#584E4A,0.8);
+  width: 300px;
+  height: 100%;
+  top: 0;
+  left: -300px;
+  position: fixed;
+  z-index: 1;
+  color: #EFEFEF;
+  a{
+    color: #EFEFEF;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    top: 50px;
+    left: 114px;
+    position: absolute;
+  }
+  li {
+    margin: 0 0 30px;
+    list-style: none;
+  }
+  button {
+    background-color: rgba(0,0,0,0.8);
+    display: block;
+    position: absolute;
+    top: 150px;
+    left: 300px;
+    width: 52px;
+    height: 132px;
+    margin: 0;
+    padding: 0;
+    border: none;
+  }
+}
+
