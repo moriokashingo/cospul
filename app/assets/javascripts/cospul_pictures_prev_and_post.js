@@ -1,9 +1,9 @@
 
 $(function() {
-  var pictures        = [];
+  var pictures      = [];
   var inputs        = [];
   var input_area    = $('.upload__box');
-  var count = 0;
+  var count         = 0;
   var pictures_count;
 
   // 投稿ボタンのサイズ変更
@@ -57,7 +57,7 @@ $(function() {
     $('#upload__file__previews').addClass(`edit__cospul__pictures`);
     $('.upload__box').before(html);
     pictures.push(html);
-    var new_input = $(`<input name="cospul[cospul_pictures_attributes][${count}][picture]" class="upload__box__input" data-picture= ${pictures.length} type="file" id="post__img" accept="picture/*">`);
+    var new_input = $(`<input name="cospul[cospul_pictures_attributes][${count+1}][picture]" class="upload__box__input" data-picture= ${pictures.length} type="file" id="post__img" accept="picture/*">`);
     input_area.prepend(new_input);
     pictures_count = $('.edit__cospul__pictures__picture').length;
     dpboxSize(pictures_count);
