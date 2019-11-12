@@ -11,7 +11,7 @@ User.create!(
   [
     {
       email: 'tanaka@gmail.com',
-      password: '111111',
+      password: 'tanaka',
       name: 'tanaka',
       image: open("#{Rails.root}/app/assets/images/seed/tanaka.jpg"),
       created_at: '2019-09-20 00:00:00',
@@ -19,7 +19,7 @@ User.create!(
     },
     {
       email: 'suzuki@gmail.com',
-      password: '222222',
+      password: 'suzuki',
       name: 'suzuki',
       image: open("#{Rails.root}/app/assets/images/seed/suzuki.jpg"),
       created_at: '2019-09-20 00:00:00',
@@ -97,9 +97,28 @@ Cospul.create!(
   [
     {
       title: 'adidasのスーパースター',
-      content: '新品未使用です',
+      content: '全身黒で統一。洗練されたクールな印象を意識しました。',
       likes_count:'',
       user_id:'2',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+    {
+      title: 'tanakaのマウンテンパーカー「ザ・ノース・フェイス キッズマウンテンパーカー / ノベルティコンパクトジャケット」を使ったコーディネート',
+      content: '＊おチビさんコーデ＊
+      #やっぱりストリートが好き
+      なんだかんだで最終日だーい
+      カモフラマンパケミカル
+      夏に履かそうと思ってしまって
+      すっかり存在忘れてたオリーブくん
+      なかなかのボーイッシュになってもた
+      どこかで可愛さを…️考えた結果
+      三つ編みおさげちゃん
+      ねぇねにシャボン玉で遊んでもろて
+      ご機嫌なさちこでありました
+      ',
+      likes_count:'',
+      user_id:'1',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
@@ -125,6 +144,24 @@ TagCospul.create!(
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
+    {
+      cospul_id:'2',
+      tag_id:'4',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+    {
+      cospul_id:'2',
+      tag_id:'6',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+    {
+      cospul_id:'2',
+      tag_id:'8',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
   ]
 )
 CospulDetail.create!(
@@ -139,6 +176,15 @@ CospulDetail.create!(
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
+    {
+      top: 'https://wear.jp/item/16144811/',
+      inner: 'https://wear.jp/snapitem/105371101/',
+      bottom: 'https://wear.jp/item/20167489/',
+      shoe: 'https://wear.jp/item/13883398/',
+      cospul_id: '2',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
 
   ]
 )
@@ -149,26 +195,53 @@ CospulPicture.create!(
     {
       picture: open("#{Rails.root}/app/assets/images/seed/adidas子供.jpg"),
       cospul_id:'1',
-      user_id:'1',
+      user_id:'2',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
       picture: open("#{Rails.root}/app/assets/images/seed/adidas子供2.jpg"),
       cospul_id:'1',
-      user_id:'1',
+      user_id:'2',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },    {
       picture: open("#{Rails.root}/app/assets/images/seed/adidas子供3.jpg"),
       cospul_id:'1',
-      user_id:'1',
+      user_id:'2',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',
     },
     {
       picture: open("#{Rails.root}/app/assets/images/seed/adidas子供4.jpg"),
       cospul_id:'1',
+      user_id:'2',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+    {
+      picture: open("#{Rails.root}/app/assets/images/seed/チビカモフラ.jpg"),
+      cospul_id:'2',
+      user_id:'1',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+    {
+      picture: open("#{Rails.root}/app/assets/images/seed/チビカモフラ2.jpg"),
+      cospul_id:'2',
+      user_id:'1',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },    {
+      picture: open("#{Rails.root}/app/assets/images/seed/チビカモフラ3.jpg"),
+      cospul_id:'2',
+      user_id:'1',
+      created_at: '2019-09-20 00:00:00',
+      updated_at: '2019-09-20 00:00:00',
+    },
+    {
+      picture: open("#{Rails.root}/app/assets/images/seed/チビカモフラ4.jpg"),
+      cospul_id:'2',
       user_id:'1',
       created_at: '2019-09-20 00:00:00',
       updated_at: '2019-09-20 00:00:00',

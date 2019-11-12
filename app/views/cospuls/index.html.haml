@@ -29,9 +29,9 @@
               .index__cospul__text
                 .index__cospul__text__inner
                   .index__cospul__text__title
-                    = cospul.title
+                    = cospul.title.truncate(13)
                   .index__cospul__text__content
-                    = cospul.content
+                    = cospul.content.truncate(13)
                   .index__cospul__text__user
                     = image_tag("#{cospul.user.image.url}", id: "icon")
                     = cospul.user.name
@@ -39,8 +39,10 @@
                       = render partial:'likes/like',locals: { cospul: cospul }
                   .index__cospul__text__tag
                     - if cospul.tags.present?
-                      - cospul.tags.each do |tag|
-                        .a
-                          = link_to "##{tag.name}","/tags/#{tag.id}",method: :get
+                      - cospul.tags.each_with_index do |tag,i|
+                        - if i <= 2
+                          .a
+                            = link_to "##{tag.name}","/tags/#{tag.id}",method: :get
+                        - else
       = paginate(@cospuls)
       #ss ⬆️
