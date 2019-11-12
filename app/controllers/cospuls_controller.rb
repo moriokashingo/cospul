@@ -1,7 +1,7 @@
 class CospulsController < ApplicationController
 
   def index
-    @cospuls =Cospul.order("created_at DESC").page(params[:page]).per(12)
+    @cospuls =Cospul.order("created_at DESC").page(params[:page]).per(9)
     @like = Like.new
     @user = current_user
   end
