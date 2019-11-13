@@ -29,49 +29,45 @@ cospulは、以下のことができます。
 
 ### ゲーム
 トップページの右上にある➕ボタンをクリックするとゲームや商品検索などのページに遷移するボタンが表示されます。
+[![Image from Gyazo](https://i.gyazo.com/d7143afb0ca27f531a8c7c4ac4440dd4.gif)](https://gyazo.com/d7143afb0ca27f531a8c7c4ac4440dd4)
 <!--  -->
 
 ## ログイン時
 トップページの左上のボタンを押すとログインや新規登録画面へのリンクが表示されます。
-<!--  -->
+ログインすると左上にユーザーのアイコンが表示されます。
 signinからメールアドレス、パスワードを入力してログインできます。
-
-
-###  いいね機能
-トップページ、商品詳細画面、で記事にいいねを押すことができます。
-いいねを押した記事はトップページのサイドメニューから
-一覧で見ることができます。
-
-
 ###  テスト用ユーザー
 email tanaka@gmail.com
+
 password tanaka
-<!--  -->
+[![Image from Gyazo](https://i.gyazo.com/fc77e92f2b445d490f0a47339adc1d79.gif)](https://gyazo.com/fc77e92f2b445d490f0a47339adc1d79)
+[![Image from Gyazo](https://i.gyazo.com/9b1195a0276418ee4623b89ff66f4bec.gif)](https://gyazo.com/9b1195a0276418ee4623b89ff66f4bec)
+
+
 
 ###  投稿機能
 ログイン後、左上のボタンを押すとNEW POSTがあるのでクリックすると、投稿画面に遷移します。
-<!--  -->
 1枚目のページで
 写真、タイトル、詳細、タグ付けを投稿できます。
 追加したいタグ名を入力するとインクリメンタルサーチで既存のタグを追加することができます。
 一番下の部分では新たなタグの作成も可能です。
-
+[![Image from Gyazo](https://i.gyazo.com/1aeaf52f07f97d89ccd82da6f02892f7.gif)](https://gyazo.com/1aeaf52f07f97d89ccd82da6f02892f7)
 ###  楽天検索
 2枚目のページで
 １つ１つの服のアイテムの詳細を入力することができ、商品のurlを入力すると商品詳細ページでリンクボタンとして表示されます。
 一番下の部分では楽天商品検索APIを使い商品サイトの検索もできます。
-
+[![Image from Gyazo](https://i.gyazo.com/a959a5787ae41d74bbb80a7542d9234a.gif)](https://gyazo.com/a959a5787ae41d74bbb80a7542d9234a)
 
 自分で投稿した記事は商品詳細ページから、編集ボタンを押すと編集する事ができます
-<!--  -->
+https://gyazo.com/0e857effef077ef302c9b0155daf0608
 
 
 ###  いいね機能
 記事の上にマウスーオーバしてハートボタンを押すと記事にいいねする事ができます。
-<!--  -->
+[![Image from Gyazo](https://i.gyazo.com/2e2e405932d5685280d6ce6d34cab8fb.gif)](https://gyazo.com/2e2e405932d5685280d6ce6d34cab8fb)
 いいねした記事は、トップページ左上のボタンからLIKE's LISTボタンを押すといいねした記事を一覧で見る事ができます。
 <!--  -->
-
+[![Image from Gyazo](https://i.gyazo.com/6f6231dd35bbceb4fd0d8a64dba90a5d.gif)](https://gyazo.com/6f6231dd35bbceb4fd0d8a64dba90a5d)
 
 
 
@@ -79,11 +75,12 @@ password tanaka
 # どうやってできているのか？
 cospulは、以下の技術を使用しています。
 
-Ruby on Rails
-MySQL
+Ruby Ver 2.5.1
+Ruby on Rails Ver 5.2.3
+MySQL  Ver 14.14
 AWS
 S3
-jQuery
+jQuery Ver 1.9.1
 楽天市場商品検索api
 テストはRspecで書いています。
 
