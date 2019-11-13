@@ -19,12 +19,13 @@ cospulは、以下のことができます。
 
 ### 詳細
 トップページから記事の上にマウスオーバーするとタイトルなどの詳細を見ることができます。
-<!-- 画像 -->
+[![Image from Gyazo](https://i.gyazo.com/4f76da8452301e4684ac55ad9e57de06.gif)](https://gyazo.com/4f76da8452301e4684ac55ad9e57de06)
 記事をクリックするとその記事の詳細を見ることができます。
-<!--  -->
+[![Image from Gyazo](https://i.gyazo.com/1496d8144756193af2dd155cb5660f0d.gif)](https://gyazo.com/1496d8144756193af2dd155cb5660f0d)
 タグボタンをクリックすると同じタグを持つ記事を一覧で見ることができます。
-<!--  -->
+[![Image from Gyazo](https://i.gyazo.com/206f1852fb308206b35810b95613ed6e.gif)](https://gyazo.com/206f1852fb308206b35810b95613ed6e)
 左のボタンを押すとサイドバーが出てくるのでそこからトップページなどに移動することができます。
+[![Image from Gyazo](https://i.gyazo.com/85f17cbc9ca3b273d97c002325a481a4.gif)](https://gyazo.com/85f17cbc9ca3b273d97c002325a481a4)
 
 ### ゲーム
 トップページの右上にある➕ボタンをクリックするとゲームや商品検索などのページに遷移するボタンが表示されます。
