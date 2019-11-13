@@ -35,8 +35,8 @@
                   .index__cospul__text__user
                     = image_tag("#{cospul.user.image.url}", id: "icon")
                     = cospul.user.name
-                    .good_btn
-                      = render partial:'likes/like',locals: { cospul: cospul }
+                  .good_btn
+                    = render partial:'likes/like',locals: { cospul: cospul }
                   .index__cospul__text__tag
                     - if cospul.tags.present?
                       - cospul.tags.each_with_index do |tag,i|
