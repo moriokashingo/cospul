@@ -47,3 +47,10 @@ html,body{
   color: rgb(255, 0, 119);
   font-size: 20px;
 }
+
+.like-link{
+  position: relative;
+  z-index:20;
+  display: block;
+  width: 40px;
+}

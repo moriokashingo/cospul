@@ -45,6 +45,12 @@
       }
     }
   }
+  .good_btn{
+    a,button{
+      position: relative;
+      z-index:20;
+    }
+  }
 }
 
   //モバイル用
