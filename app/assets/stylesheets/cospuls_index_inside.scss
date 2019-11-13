@@ -9,6 +9,12 @@
     position: relative;
     margin-right: 50px;
     margin-bottom: 50px;
+    &__picture{
+      img{
+      height: 328px;
+      width: 246px;
+      }
+    }
   }
   .cospul__link {
     display: block;

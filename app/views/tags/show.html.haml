@@ -4,9 +4,29 @@
     .chip.chip_title
       = @name 
       の投稿一覧
-    .tag_contents
-      - if @cospuls.present?
-        - @cospuls.each do |cospul|
-          = render partial: "shared//cospul2", locals: { cospul: cospul }
-      - else
-        まだ投稿はありません
+    .main-page__pictures
+      - @cospuls.each do |cospul|
+        = link_to  "/cospuls/#{cospul.id}",class: "cospul__link", method: :get do
+          .index__cospul
+            .index__cospul__picture
+              - cospul.cospul_pictures.each_with_index do |cospul, i|
+                = image_tag cospul.picture.url
+            .index__cospul__text
+              .index__cospul__text__inner
+                .index__cospul__text__title
+                  = cospul.title.truncate(13)
+                .index__cospul__text__content
+                  = cospul.content.truncate(13)
+                .index__cospul__text__user
+                  = image_tag("#{cospul.user.image.url}", id: "icon")
+                  = cospul.user.name
+                  .good_btn
+                    = render partial:'likes/like',locals: { cospul: cospul }
+                .index__cospul__text__tag
+                  - if cospul.tags.present?
+                    - cospul.tags.each_with_index do |tag,i|
+                      - if i <= 2
+                        .a
+                          = link_to "##{tag.name}","/tags/#{tag.id}",method: :get
+                      - else
+      = paginate(@cospuls)
