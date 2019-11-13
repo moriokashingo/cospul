@@ -25,7 +25,7 @@ cospulは、以下のことができます。
 タグボタンをクリックすると同じタグを持つ記事を一覧で見ることができます。
 [![Image from Gyazo](https://i.gyazo.com/206f1852fb308206b35810b95613ed6e.gif)](https://gyazo.com/206f1852fb308206b35810b95613ed6e)
 左のボタンを押すとサイドバーが出てくるのでそこからトップページなどに移動することができます。
-[![Image from Gyazo](https://i.gyazo.com/85f17cbc9ca3b273d97c002325a481a4.gif)](https://gyazo.com/85f17cbc9ca3b273d97c002325a481a4)
+[![Image from Gyazo](https://i.gyazo.com/85f17cbc9ca3b273d97c002325a481a4.gif)]
 
 ### ゲーム
 トップページの右上にある➕ボタンをクリックするとゲームや商品検索などのページに遷移するボタンが表示されます。
