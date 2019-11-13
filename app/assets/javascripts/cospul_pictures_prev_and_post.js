@@ -58,11 +58,11 @@ $(function() {
     $('.upload__box').before(html);
     pictures.push(html);
     var new_input = $(`<input name="cospul[cospul_pictures_attributes][${count+1}][picture]" class="upload__box__input" data-picture= ${pictures.length} type="file" id="post__img" accept="picture/*">`);
-    input_area.prepend(new_input);
+    input_area.append(new_input);
     pictures_count = $('.edit__cospul__pictures__picture').length;
     dpboxSize(pictures_count);
     // 一番上のインプットだけ押せるように表示。
-    $(input_area).children(":first").css({'display':'block'});
+    $(input_area).children(":last").css({'display':'block'});
     // 選択したインプットの見た目を消す。
     $(this).css({'display':'none'});
     count += 1;
