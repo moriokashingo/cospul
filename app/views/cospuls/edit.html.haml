@@ -1,5 +1,11 @@
 .form-body
-  %h2 NEW POST
+  %h2 EDIT Cospul
+  - if @cospul.errors.full_messages.any?
+    .somothing-form__errors
+      %h2= "#{@cospul.errors.full_messages.count}件のエラーが発生しました。"
+      %ul
+        - @cospul.errors.full_messages.each do |message|
+          %li= message
   .cospul__form
   = form_with model: @cospul ,id: "cospul_form", local: true do |f|
     .hidden.delete__pictures__box
