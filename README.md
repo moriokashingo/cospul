@@ -27,10 +27,14 @@ cospulは、以下のことができます。
 左のボタンを押すとサイドバーが出てくるのでそこからトップページなどに移動することができます。
 [![Image from Gyazo](https://i.gyazo.com/85f17cbc9ca3b273d97c002325a481a4.gif)](https://gyazo.com/85f17cbc9ca3b273d97c002325a481a4)
 
+### タグ検索機能
+トップページで気になるタグのついたコーディネートを検索することができます。
+[![Image from Gyazo](https://i.gyazo.com/f6bd630e6030d1be45e6bf0aa8c41fe8.gif)](https://gyazo.com/f6bd630e6030d1be45e6bf0aa8c41fe8)
+
 ### ゲーム
 トップページの右上にある➕ボタンをクリックするとゲームや商品検索などのページに遷移するボタンが表示されます。
 [![Image from Gyazo](https://i.gyazo.com/d7143afb0ca27f531a8c7c4ac4440dd4.gif)](https://gyazo.com/d7143afb0ca27f531a8c7c4ac4440dd4)
-<!--  -->
+
 
 ## ログイン時
 トップページの左上のボタンを押すとログインや新規登録画面へのリンクが表示されます。
@@ -66,7 +70,6 @@ https://gyazo.com/0e857effef077ef302c9b0155daf0608
 記事の上にマウスーオーバしてハートボタンを押すと記事にいいねする事ができます。
 [![Image from Gyazo](https://i.gyazo.com/2e2e405932d5685280d6ce6d34cab8fb.gif)](https://gyazo.com/2e2e405932d5685280d6ce6d34cab8fb)
 いいねした記事は、トップページ左上のボタンからLIKE's LISTボタンを押すといいねした記事を一覧で見る事ができます。
-<!--  -->
 [![Image from Gyazo](https://i.gyazo.com/6f6231dd35bbceb4fd0d8a64dba90a5d.gif)](https://gyazo.com/6f6231dd35bbceb4fd0d8a64dba90a5d)
 
 
