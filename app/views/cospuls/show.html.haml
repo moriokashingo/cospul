@@ -53,12 +53,13 @@
                 = @cospul_detail.shoe
           .accessroies.show__cospul__details__box
             %p.show__cospul__details__text その他のアイテムについて
-            - @accessories.each do |accessory|
+            - @accessories.each_with_index do |accessory,i|
               .acs
                 - if accessory.name.include?("https")
                   = link_to 'その他のアイテムの商品サイト', "#{accessory.name}", method: :get
                 - else
-                  その他の情報
+                  %p
+                    "その他のアイテム#{i+1}"
                   = accessory.name
           .watch__user_action
             .good_btn
