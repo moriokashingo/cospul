@@ -29,7 +29,9 @@ $(function() {
       if (input.length !== 0){
         if(tags.length !== 0) {
           $.each(tags, function(i, tag) {
+            if(i <= 4) {
             appendList(tag);
+            }
           })
         }
       }  else  {
