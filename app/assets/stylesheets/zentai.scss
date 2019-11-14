@@ -54,3 +54,21 @@ html,body{
   display: block;
   width: 40px;
 }
+
+.somothing-form__errors{
+  padding:12px;
+  font-weight:850;
+  color:#262626;
+  background:#FFEBE8;
+  border:2px solid #990000;
+  text-align: center;
+  max-width: 400px;
+  margin:0 auto;
+  h2{
+    font-size:15px;
+    font-weight:850;
+  }
+  li{
+    font-size: 13px;
+  }
+}

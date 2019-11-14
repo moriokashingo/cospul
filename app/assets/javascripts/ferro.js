@@ -1,5 +1,5 @@
 $(document).ready(function() {
   $(".social").ferroMenu({
-    position:'right-top'  
+    position:'right-top'
   });
 });

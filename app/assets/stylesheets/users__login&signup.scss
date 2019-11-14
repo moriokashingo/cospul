@@ -16,6 +16,8 @@
     left:50%;
     top:50%;
     transform: translate(-50%,-50%);
+    overflow-y: auto;
+    overflow-x: hidden;
     h1{
       text-align:center;
       margin-bottom:60px;
@@ -112,5 +114,20 @@
   padding:10px 10px 10 10px;
   margin-bottom:10px;
   font-size:200%;
+  }
+}
+
+.something-form__errors{
+  padding:12px;
+  font-weight:850;
+  color:#262626;
+  background:#FFEBE8;
+  border:2px solid #990000;
+  text-align: center;
+  h2{
+    font-size:15px;
+  }
+  li{
+    font-size: 13px;
   }
 }

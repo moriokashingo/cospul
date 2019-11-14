@@ -7,4 +7,5 @@ class User < ApplicationRecord
   has_many       :likes       , dependent: :destroy
   has_many       :like_cospuls, through: :likes     , source: :cospul
   mount_uploader :image       , PictureUploader
+  validates :name             , presence: true      ,length:  { maximum: 20 }
 end

@@ -34,7 +34,7 @@ class CospulsController < ApplicationController
     @cospul = Cospul.find(params[:id])
     if @cospul.user_id == current_user.id
       if @cospul.update(cospul_params)
-        redirect_to edit_cospul_cospul_detail_path(@cospul,@cospul.cospul_detail)
+        redirect_to edit_cospul_cospul_detail_path(@cospul.id,@cospul.cospul_detail)
       else
         render :edit
       end

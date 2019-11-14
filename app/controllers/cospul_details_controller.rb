@@ -13,7 +13,7 @@ class CospulDetailsController < ApplicationController
   end
 
   def create
-    @cospul_detail = CospulDetail.create(new_cospul_detail_params)
+    @cospul_detail = CospulDetail.create(cospul_detail_params)
     if @cospul_detail.save
       redirect_to root_path
     else
@@ -36,7 +36,7 @@ class CospulDetailsController < ApplicationController
 
   def update
     cospul_detail = CospulDetail.find(params[:id])
-    if cospul_detail.update(edit_cospul_detail_params)
+    if cospul_detail.update(cospul_detail_params)
       redirect_to root_path
     else
       render :edit
@@ -45,11 +45,8 @@ class CospulDetailsController < ApplicationController
 
 
   private
-  def new_cospul_detail_params
-    params.require(:cospul_detail).permit(:head,:top,:inner,:bottom,:shoe,accessories_attributes:[:name]).merge(cospul_id: params[:cospul_id])
+  def cospul_detail_params
+    params.require(:cospul_detail).permit(:head,:top,:inner,:bottom,:shoe,accessories_attributes:[:name,:id,:_destroy]).merge(cospul_id: params[:cospul_id])
   end
 
-  def edit_cospul_detail_params
-    params.require(:cospul_detail).permit(:head,:top,:inner,:bottom,:shoe,:cospul_id,accessories_attributes:[:name])
-  end
 end
