@@ -1,0 +1,25 @@
+ja:
+  activerecord:
+    models:
+      user: ユーザー
+      cospul: コスプル
+      cospul_detail: コスプルの詳細
+    attributes:
+      user:
+        name: 名前
+        icon: アイコン
+        email: メールアドレス
+        password: パスワード
+        password_confirmation: パスワード再確認
+      cospul:
+        title: タイトル
+        content: コスプルの説明
+        cospul_picture: コスプルの画像
+      cospul_detail:
+        head: 帽子
+        top: トップス
+        inner: インナー
+        bottom: ボトムス
+        shoe: 靴
+        all_details: いずれか１つの詳細
+
