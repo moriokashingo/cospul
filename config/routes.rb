@@ -4,6 +4,9 @@ Rails.application.routes.draw do
   root 'cospuls#index'
 
   resources :cospuls do
+    collection do
+      get 'search'
+    end
     resources :cospul_details
   end
 
