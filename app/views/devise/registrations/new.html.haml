@@ -1,32 +1,28 @@
 .login-page
   = form_for(resource, as: resource_name, html: {class: 'login-form'},url: registration_path(resource_name)) do |f|
     %h2 Sign up
-    = render "devise/shared/error_messages", resource: resource
+    - if @user.errors.full_messages.any?
+      .something-form__errors
+        %h2.something-form__errors.title= "#{@user.errors.full_messages.count}件のエラーが発生しました。"
+        %ul
+          - @user.errors.full_messages.each do |message|
+            %li= message
     #icon__box
       #upload__file__previews
         = image_tag 'no_icon.png', id: 'icon__img__prev', class: 'edit__item__images__image',data: {image: 0}
         = f.file_field :icon ,name: "user[image]",class: '',id: 'icon__img',accept: "image/*"
     .txtb
-      = f.text_field :name, autofocus: true, maxlength: "6" , class: "input name"
-      %span{"data-placeholder" => "Name (6 characters maximum"}
+      = f.text_field :name, autofocus: true, maxlength: "20" , class: "input name"
+      %span{"data-placeholder" => "名前 (20文字以内) "}
     .txtb
       = f.email_field :email, autofocus: true, autocomplete: "email", class: "input mail"
-      %span{"data-placeholder" => "Email"}
+      %span{"data-placeholder" => "メールアドレス"}
     .txtb
       = f.password_field :password, autocomplete: "new-password",class: "input password"
-      %span{"data-placeholder" => "password"}
+      %span{"data-placeholder" => "パスワード"}
     .txtb
       = f.password_field :password_confirmation, autocomplete: "new-password" ,class: "input cpassword"
-      %span{"data-placeholder" => "password_confirmation "}
+      %span{"data-placeholder" => "パスワード再確認 "}
     .actions
       = f.submit "Sign up" , class: "logbtn"
-  :javascript
-    $(".txtb input").on("focus",function(){
-      $(this).addClass("focus");
-    });
-
-    $(".txtb input").on("blur",function(){
-      if($(this).val() == "")
-      $(this).removeClass("focus");
-    });
-  = render "devise/shared/links"
+.user__form__error
