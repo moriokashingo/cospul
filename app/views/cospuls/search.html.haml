@@ -4,8 +4,11 @@
     .chip.chip_title
       = @keyword
       を含むタグの検索結果。
+    .tag__search__form
       = form_with(url:  search_cospuls_path, method: :get, local: true)  do |f|
         = f.text_field :search ,placeholder: "気になるタグを検索" ,class: "search__form__text-field"
+        .tag__candidate__box
+          %ul.tag__candidate__box__inner
         = button_tag type: 'submit', class: 'search__form__button' do
           =fa_icon "search"
     .main-page__pictures

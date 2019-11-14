@@ -17,12 +17,13 @@
     .main-page__content__inner
       %h1 cospul
       = link_to '~あらゆる衣装の情報交換サイト~', intro_show_path , method: :get, id: "introshow"
-      = form_with(url:  search_cospuls_path, method: :get, local: true)  do |f|
-        = f.text_field :search ,placeholder: "気になるタグを検索" ,class: "search__form__text-field"
-        .tag__candidate__box
-          %ul.tag__candidate__box__inner
-        = button_tag type: 'submit', class: 'search__form__button' do
-          =fa_icon "search"
+      .tag__search__form
+        = form_with(url:  search_cospuls_path, method: :get, local: true)  do |f|
+          = f.text_field :search ,placeholder: "気になるタグを検索" ,class: "search__form__text-field"
+          .tag__candidate__box
+            %ul.tag__candidate__box__inner
+          = button_tag type: 'submit', class: 'search__form__button' do
+            =fa_icon "search"
       .main-page__pictures
         - @cospuls.each do |cospul|
           = link_to  "/cospuls/#{cospul.id}",class: "cospul__link", method: :get do
