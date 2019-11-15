@@ -35,9 +35,7 @@
       = f.text_field :title, placeholder: 'タイトルを入力してください。',class: 'cospul__form__text__title'
       = f.text_area :content, placeholder: '詳細を入力してください。',class: 'cospul__form__text__content'
     .tags__search
-      %input.tags__search__field{:placeholder => "追加したいtag名を入力してください", type: "text" ,name: "keyword"}>/
-      .tags__search__result
-      .tags__search__add
+      = f.text_field :tags_as_string, value: @cospul.tags_as_string
     .cospul__form__post-btn
       = f.submit '商品情報入力画面に移動',type: "submit", class: "btn btn--block"
   .tag__form
