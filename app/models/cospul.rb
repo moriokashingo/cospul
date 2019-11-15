@@ -15,7 +15,8 @@ class Cospul < ApplicationRecord
   has_one                       :cospul_detail                , dependent: :destroy
   has_many                      :cospul_pictures              , dependent: :destroy
   accepts_nested_attributes_for :cospul_pictures              , allow_destroy: true, reject_if: :all_blank
-
+  has_many                      :gutentag_taggings             ,dependent: :destroy
+  has_many                      :gutentag_tags                , through: :gutentag_taggings,dependent: :destroy
 
   validates :title                                , presence: true, length: { in: 1..40 }
   validates :content                              , presence: true, length: { maximum: 1000 }
