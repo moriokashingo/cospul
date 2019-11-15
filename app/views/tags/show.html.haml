@@ -2,7 +2,7 @@
 .content
   .content_inner
     .chip.chip_title
-      = @name 
+      = @name
       の投稿一覧
     .main-page__pictures
       - @cospuls.each do |cospul|
@@ -29,4 +29,3 @@
                         .a
                           = link_to "##{tag.name}","/tags/#{tag.id}",method: :get
                       - else
-      = paginate(@cospuls)
