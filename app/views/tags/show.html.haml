@@ -29,3 +29,4 @@
                         .a
                           = link_to "##{tag.name}","/tags/#{tag.id}",method: :get
                       - else
+      = paginate(@cospuls)
