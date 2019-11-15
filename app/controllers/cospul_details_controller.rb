@@ -1,7 +1,6 @@
 class CospulDetailsController < ApplicationController
   def new
     @cospul_detail = CospulDetail.new
-    @cospul_id = @cospul_detail.id
     @cospul_detail.accessories.build
     RakutenWebService.configure do |c|
       c.application_id = Rails.application.credentials.rakuten[:application_id]

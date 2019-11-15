@@ -13,15 +13,8 @@ class LikesController < ApplicationController
 
   def show
     @cospuls = []
-    user = User.find(current_user.id)
-    #いいねモデルの現ユーザーがした物のレコードを取り出す。
-    @likes = Like.where(user_id: "#{current_user.id}")
-    #Cospulから上で取りだしたレコードのcospul_idのcospulレコードをeach文で持ってきて配列に入れる。
-    @likes.each do |like|
-      cospul = Cospul.find("#{like.cospul_id}")
-      @cospuls << cospul
-    end
-    #ここにいいねした順に並べる記述を描きたい。
+    @likes = Like.where(user_id: "#{current_user.id}").pluck(:cospul_id)
+    @cospuls = Cospul.where(id: @likes).includes(:user,:likes,:cospul_pictures,:taggings,:tags).page(params[:page]).per(9)
   end
 
   private

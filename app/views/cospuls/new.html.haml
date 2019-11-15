@@ -25,11 +25,6 @@
       = f.text_field :title, placeholder: 'タイトルを入力してください。',class: 'cospul__form__text__title'
       = f.text_area :content, placeholder: '詳細を入力してください。',class: 'cospul__form__text__content'
     .tags__search
-      = f.text_field :tags_as_string, value: @cospul.tags_as_string
+      = f.text_field :tags_as_string, placeholder: 'tagを入力してください。『,』で区切ることで複数タグを追加できます', value: @cospul.tags_as_string
     .cospul__form__post-btn
       = f.submit '商品情報入力画面に移動',type: "submit", class: "btn btn--block"
-  .tag__form
-    %p 該当するタグがが無い場合はこちらで作る事もできます
-    = form_with model: @tag , local: true do |t|
-      = t.text_field  :name, placeholder: '新規タグ作成',class: 'cospul-text'
-      = t.submit '新しいタグを作成する',type: "submit", class: "btn"
