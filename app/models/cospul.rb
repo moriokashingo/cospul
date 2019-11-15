@@ -17,8 +17,8 @@ class Cospul < ApplicationRecord
   accepts_nested_attributes_for :cospul_pictures              , allow_destroy: true, reject_if: :all_blank
 
 
-  # validates :title                                , presence: true, length: { in: 1..40 }
-  # validates :content                              , presence: true, length: { maximum: 1000 }
-  # validates :user                                 , presence: true
-  # validates :cospul_pictures                      , presence: true
+  validates :title                                , presence: true, length: { in: 1..40 }
+  validates :content                              , presence: true, length: { maximum: 1000 }
+  validates :user                                 , presence: true
+  validates :cospul_pictures                      , presence: true
 end
