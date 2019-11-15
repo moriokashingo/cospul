@@ -1,8 +1,7 @@
 class CospulsController < ApplicationController
 
   def index
-    @cospuls =Cospul.order("created_at DESC").page(params[:page]).per(9)
-    @like = Like.new
+    @cospuls =Cospul.order("created_at DESC").includes(:user,:likes,:cospul_pictures,:taggings,:tags).page(params[:page]).per(9)
     @user = current_user
 
   end
@@ -59,22 +58,11 @@ class CospulsController < ApplicationController
   end
 
   def search
-    @pre_cospuls = []
-    @cospul_ids = []
-    @keyword= params[:search]
-    tag = GutentagTag.find_by(name: params[:search])
-    if tag.present?
-      gutentag_tagging = GutentagTagging.where(tag_id: tag.id)
-      gutentag_tagging.each do |tag|
-        @one_cospul = Cospul.find(tag.taggable_id)
-        @pre_cospuls << @one_cospul
-      end
-      @pre_cospuls.each do |cospul|
-        @one_cospul_id= cospul.id
-        @cospul_ids << @one_cospul_id
-      end
-      @cospuls =Cospul.where(id: @cospul_ids).order("created_at DESC").page(params[:page]).per(9)
-      @name = tag.name
+    @keyword = params[:search]
+    search_tag = GutentagTag.find_by(name: params[:search])
+    if search_tag.present?
+      tag_ids = GutentagTagging.where(tag_id: search_tag.id).select(:taggable_id)
+      @cospuls = Cospul.where(id: tag_ids).includes(:user,:likes,:cospul_pictures,:taggings,:tags).page(params[:page]).per(9)
     end
 
     @tags = GutentagTag.where('name LIKE(?)', "%#{params[:keyword]}%")
