@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_08_12_102319) do
+ActiveRecord::Schema.define(version: 2019_11_15_010342) do
 
   create_table "accessories", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.text "name"
@@ -72,6 +72,26 @@ ActiveRecord::Schema.define(version: 2019_08_12_102319) do
     t.index ["user_id"], name: "index_cospuls_on_user_id"
   end
 
+  create_table "gutentag_taggings", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.integer "tag_id", null: false
+    t.integer "taggable_id", null: false
+    t.string "taggable_type", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["tag_id"], name: "index_gutentag_taggings_on_tag_id"
+    t.index ["taggable_type", "taggable_id", "tag_id"], name: "unique_taggings", unique: true
+    t.index ["taggable_type", "taggable_id"], name: "index_gutentag_taggings_on_taggable_type_and_taggable_id"
+  end
+
+  create_table "gutentag_tags", id: :integer, options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
+    t.string "name", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "taggings_count", default: 0, null: false
+    t.index ["name"], name: "index_gutentag_tags_on_name", unique: true
+    t.index ["taggings_count"], name: "index_gutentag_tags_on_taggings_count"
+  end
+
   create_table "likes", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
     t.integer "user_id"
     t.integer "cospul_id"
@@ -80,22 +100,6 @@ ActiveRecord::Schema.define(version: 2019_08_12_102319) do
     t.index ["cospul_id"], name: "index_likes_on_cospul_id"
     t.index ["user_id", "cospul_id"], name: "index_likes_on_user_id_and_cospul_id", unique: true
     t.index ["user_id"], name: "index_likes_on_user_id"
-  end
-
-  create_table "tag_cospuls", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.bigint "cospul_id"
-    t.bigint "tag_id"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["cospul_id"], name: "index_tag_cospuls_on_cospul_id"
-    t.index ["tag_id"], name: "index_tag_cospuls_on_tag_id"
-  end
-
-  create_table "tags", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
-    t.string "name", null: false
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.index ["name"], name: "index_tags_on_name", unique: true
   end
 
   create_table "users", options: "ENGINE=InnoDB DEFAULT CHARSET=utf8", force: :cascade do |t|
@@ -117,6 +121,4 @@ ActiveRecord::Schema.define(version: 2019_08_12_102319) do
   add_foreign_key "cospul_details", "cospuls"
   add_foreign_key "cospul_pictures", "cospuls"
   add_foreign_key "cospuls", "users"
-  add_foreign_key "tag_cospuls", "cospuls"
-  add_foreign_key "tag_cospuls", "tags"
 end

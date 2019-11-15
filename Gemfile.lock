@@ -152,6 +152,8 @@ GEM
     formatador (0.2.5)
     globalid (0.4.2)
       activesupport (>= 4.2.0)
+    gutentag (2.5.2)
+      activerecord (>= 3.2.0)
     haml (5.1.2)
       temple (>= 0.8.0)
       tilt
@@ -350,6 +352,7 @@ DEPENDENCIES
   erb2haml
   fog-aws
   font-awesome-rails
+  gutentag (~> 2.5)
   haml-rails
   jbuilder (~> 2.5)
   jquery-rails

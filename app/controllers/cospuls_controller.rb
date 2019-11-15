@@ -9,8 +9,6 @@ class CospulsController < ApplicationController
 
   def new
     @cospul = Cospul.new
-    @cospul.tags
-    @tag  = Tag.new
     @cospul.cospul_pictures.build
   end
 
@@ -28,14 +26,17 @@ class CospulsController < ApplicationController
 
   def edit
     @cospul = Cospul.find(params[:id])
-    @tag  = Tag.new
   end
 
   def update
     @cospul = Cospul.find(params[:id])
     if @cospul.user_id == current_user.id
       if @cospul.update(cospul_params)
-        redirect_to edit_cospul_cospul_detail_path(@cospul.id,@cospul.cospul_detail)
+        if @cospul.cospul_detail.present?
+          redirect_to edit_cospul_cospul_detail_path(@cospul.id,@cospul.cospul_detail)
+        else
+          redirect_to new_cospul_cospul_detail_path(@cospul.id)
+        end
       else
         render :edit
       end
@@ -57,19 +58,19 @@ class CospulsController < ApplicationController
     cospul.destroy if cospul.user_id == current_user.id
   end
 
-
   def search
     @keyword= params[:search]
-    @keyword_tags = Tag.find_by(name: params[:search])
+    @keyword_tags = GutentagTag.find_by(name: params[:search])
     if @keyword_tags.present?
-      @tag_cospuls = TagCospul.where(tag_id: @keyword_tags.id)
+      @tag_cospuls =   GutentagTagging.where(tag_id: @keyword_tags.id)
       @tag_cospuls.each do |tag|
         @keyword_cospuls = []
-        @one_cospuls = Cospul.find(tag.cospul_id)
+        @one_cospuls = Cospul.find(tag.taggable_id)
         @keyword_cospuls << @one_cospuls
       end
     end
-    @tags = Tag.where('name LIKE(?)', "%#{params[:keyword]}%")
+
+    @tags = GutentagTag.where('name LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format|
       format.html
       format.json
@@ -78,6 +79,6 @@ class CospulsController < ApplicationController
   private
 
   def cospul_params
-    params.require(:cospul).permit(:content,:title,{tag_ids: []},cospul_pictures_attributes:[:picture,:_destroy,:id]).merge(user_id: current_user.id)
+    params.require(:cospul).permit(:content,:title,:tags_as_string,cospul_pictures_attributes:[:picture,:_destroy,:id]).merge(user_id: current_user.id)
   end
 end
