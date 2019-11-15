@@ -27,70 +27,6 @@ User.create!(
     }
   ]
 )
-Tag.create!(
-  [
-    {
-      name: 'adidas',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'black',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'HIP HOP',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'DANCE',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'RED',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'かっこいい',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'かわいい',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: '女の子',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: '男の子',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'セクシー',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'おもしろい',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      name: 'コスプレ',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-  ]
-)
 
 
 Cospul.create!(
@@ -124,46 +60,7 @@ Cospul.create!(
     },
   ]
 )
-TagCospul.create!(
-  [
-    {
-      cospul_id:'1',
-      tag_id:'1',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      cospul_id:'1',
-      tag_id:'2',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      cospul_id:'1',
-      tag_id:'6',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      cospul_id:'2',
-      tag_id:'4',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      cospul_id:'2',
-      tag_id:'6',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-    {
-      cospul_id:'2',
-      tag_id:'8',
-      created_at: '2019-09-20 00:00:00',
-      updated_at: '2019-09-20 00:00:00',
-    },
-  ]
-)
+
 CospulDetail.create!(
   [
     {
