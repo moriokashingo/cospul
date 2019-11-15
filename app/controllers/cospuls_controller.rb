@@ -59,15 +59,16 @@ class CospulsController < ApplicationController
   end
 
   def search
+    @cospuls = []
     @keyword= params[:search]
-    @keyword_tags = GutentagTag.find_by(name: params[:search])
-    if @keyword_tags.present?
-      @tag_cospuls =   GutentagTagging.where(tag_id: @keyword_tags.id)
-      @tag_cospuls.each do |tag|
-        @keyword_cospuls = []
-        @one_cospuls = Cospul.find(tag.taggable_id)
-        @keyword_cospuls << @one_cospuls
+    tag = GutentagTag.find_by(name: params[:search])
+    if tag.present?
+      chukan = GutentagTagging.where(tag_id: tag.id)
+      chukan.each do |tag|
+        @one_cospul = Cospul.find(tag.taggable_id)
+        @cospuls << @one_cospul
       end
+      @name = tag.name
     end
 
     @tags = GutentagTag.where('name LIKE(?)', "%#{params[:keyword]}%")

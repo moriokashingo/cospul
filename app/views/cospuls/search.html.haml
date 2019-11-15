@@ -3,7 +3,7 @@
   .content_inner
     .chip.chip_title
       = @keyword
-      を含むタグの検索結果。
+      の検索結果
     .tag__search__form
       = form_with(url:  search_cospuls_path, method: :get, local: true)  do |f|
         = f.text_field :search ,placeholder: "気になるタグを検索" ,class: "search__form__text-field"
@@ -12,10 +12,10 @@
         = button_tag type: 'submit', class: 'search__form__button' do
           =fa_icon "search"
     .main-page__pictures
-      - if @keyword_cospuls.blank?
+      - if @cospuls.blank?
         %h2 該当するタグ、またはタグを持つcospulは見つかりませんでした。
       - else
-        - @keyword_cospuls.each do |cospul|
+        - @cospuls.each do |cospul|
           = link_to  "/cospuls/#{cospul.id}",class: "cospul__link", method: :get do
             .index__cospul
               .index__cospul__picture
