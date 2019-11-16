@@ -1,5 +1,4 @@
 $(function () {
-
   // プレビューファイルの読み込み等
   function readURL(input) {
     if (input.files && input.files[0]) {
@@ -16,5 +15,5 @@ $(function () {
 //ファイルが決まった後
   $(document).on('change', '#icon__img',function(event) {
     readURL(this);
-    });
   });
+});
