@@ -1,5 +1,6 @@
 class LikesController < ApplicationController
-  before_action :set_variables,except: [:show]
+  before_action :set_variables  , except: [:show]
+  before_action :move_to_index  , only:   [:show]
 
   def like
     like = current_user.likes.new(cospul_id: @cospul.id)
@@ -14,7 +15,7 @@ class LikesController < ApplicationController
   def show
     @cospuls = []
     @likes = Like.where(user_id: "#{current_user.id}").pluck(:cospul_id)
-    @cospuls = Cospul.where(id: @likes).includes(:user,:likes,:cospul_pictures,:taggings,:tags).page(params[:page]).per(9)
+    @cospuls = Cospul.where(id: @likes).new_posts.post_includes.set_page(params[:page])
   end
 
   private
