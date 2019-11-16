@@ -1,9 +1,10 @@
 class CospulsController < ApplicationController
+  before_action :set_cospul     , only:   [:show, :destroy, :edit, :update]
+  before_action :move_to_index  , except: [:index,:show]
+  before_action :user_id_check  , only:   [:destroy, :edit, :update]
 
   def index
-    @cospuls =Cospul.order("created_at DESC").includes(:user,:likes,:cospul_pictures,:taggings,:tags).page(params[:page]).per(9)
-    @user = current_user
-
+    @cospuls =Cospul.new_posts.post_includes.set_page(params[:page])
   end
 
   def new
@@ -14,7 +15,6 @@ class CospulsController < ApplicationController
 
   def create
     @cospul = Cospul.create(cospul_params)
-    @cospul.save
       if @cospul.save
       redirect_to new_cospul_cospul_detail_path(@cospul.id)
     else
@@ -24,37 +24,30 @@ class CospulsController < ApplicationController
 
 
   def edit
-    @cospul = Cospul.find(params[:id])
   end
 
   def update
-    @cospul = Cospul.find(params[:id])
-    if @cospul.user_id == current_user.id
-      if @cospul.update(cospul_params)
-        if @cospul.cospul_detail.present?
-          redirect_to edit_cospul_cospul_detail_path(@cospul.id,@cospul.cospul_detail)
-        else
-          redirect_to new_cospul_cospul_detail_path(@cospul.id)
-        end
+    if @cospul.update(cospul_params)
+      if @cospul.cospul_detail.present?
+        redirect_to edit_cospul_cospul_detail_path(@cospul.id,@cospul.cospul_detail)
       else
-        render :edit
+        redirect_to new_cospul_cospul_detail_path(@cospul.id)
       end
+    else
+      render :edit
     end
   end
 
   def show
-    @cospul = Cospul.find(params[:id])
     if @cospul.cospul_detail.present?
       @cospul_detail = CospulDetail.find_by(cospul_id: params[:id])
       @accessories = Accessory.where(cospul_detail_id: " #{@cospul_detail.id}")
     end
-    @like = Like.new
   end
 
 
   def destroy
-    cospul = Cospul.find(params[:id])
-    cospul.destroy if cospul.user_id == current_user.id
+    @cospul.destroy if @cospul.user_id == current_user.id
   end
 
   def search
@@ -62,7 +55,7 @@ class CospulsController < ApplicationController
     search_tag = GutentagTag.find_by(name: params[:search])
     if search_tag.present?
       tag_ids = GutentagTagging.where(tag_id: search_tag.id).select(:taggable_id)
-      @cospuls = Cospul.where(id: tag_ids).includes(:user,:likes,:cospul_pictures,:taggings,:tags).page(params[:page]).per(9)
+      @cospuls = Cospul.where(id: tag_ids).post_includes.set_page(params[:page])
     end
 
     @tags = GutentagTag.where('name LIKE(?)', "%#{params[:keyword]}%")

@@ -1,7 +1,4 @@
 
-// PC用
-@media all and (min-width:769px){
-  // intro
 .form-body{
   height:100%;
   width:100%;
@@ -108,106 +105,8 @@
   .cospul__form__post-btn{
     margin-bottom:50px;
   }
-}
+
 .tag__form{
   width:50%;
   margin: 0 auto;
 }
-
-
-    //モバイル用
-@media all and (max-width:768px){
-
-
-    // intro
-    .form-body{
-      height:100%;
-      width:100%;
-      // background-color:#000000;
-      text-align: center;
-      position: relative;
-      }
-    .pictures_list{
-      display: block;
-      width:50%;
-      }
-      .files{
-        width:270px;
-        // display:none;
-      }
-      #preview1 {
-        text-align: end;
-
-      }
-  
-      #preview2 {
-        text-align: end;
-
-      }
-  
-      #preview3 {
-        text-align: end;
-
-      }
-  
-      #preview4 {
-        text-align: end;
-
-      }
-  
-      #preview5 {
-        text-align: end;
-
-      }
-  
-      #preview1 img{
-        width: 300px;
-
-      }
-  
-      #preview2 img{
-        width: 300px;
-
-      }
-  
-      #preview3 img{
-        width: 300px;
-
-      }
-  
-      #preview4 img{
-        width: 300px;
-
-      }
-  
-      #preview5 img{
-        width: 300px;
-
-      }
-  
-      #previews{
-        display: flex;
-        }
-      
-      .img{
-        margin-right: 175px;
-      }
-      
-      // textarea,input{
-      //   width:50% !important;
-      // }
-      #tag_name{
-        position:relative;
-      }
-      
-      #tag_submit{
-       display:block;
-       margin:0 auto;
-      
-      }
-}
-  
-
-
-
-

@@ -1,4 +1,8 @@
 class CospulDetailsController < ApplicationController
+  before_action :set_cospul_detail  , only: [:edit, :update]
+  before_action :move_to_index
+  before_action :detail_user_id_check  , only:   [:destroy, :edit, :update]
+
   def new
     @cospul_detail = CospulDetail.new
     @cospul_detail.accessories.build
@@ -22,7 +26,6 @@ class CospulDetailsController < ApplicationController
 
 
   def edit
-    @cospul_detail = CospulDetail.find(params[:id])
     @cospul = Cospul.find(@cospul_detail.cospul_id)
     RakutenWebService.configure do |c|
       c.application_id = Rails.application.credentials.rakuten[:application_id]
@@ -34,8 +37,7 @@ class CospulDetailsController < ApplicationController
   end
 
   def update
-    cospul_detail = CospulDetail.find(params[:id])
-    if cospul_detail.update(cospul_detail_params)
+    if @cospul_detail.update(cospul_detail_params)
       redirect_to root_path
     else
       render :edit

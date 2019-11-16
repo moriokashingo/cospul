@@ -26,14 +26,12 @@ $(function() {
 
     .done(function(tags) {
       $(search_list).empty()
-      if (input.length !== 0){
-        if(tags.length !== 0) {
-          $.each(tags, function(i, tag) {
-            if(i <= 4) {
-            appendList(tag);
-            }
-          })
-        }
+      if (input.length !== 0 && tags.length !== 0){
+        $.each(tags, function(i, tag) {
+          if(i <= 4) {
+          appendList(tag);
+          }
+        })
       }  else  {
       $(search_list).empty();
       }

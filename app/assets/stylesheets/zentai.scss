@@ -83,3 +83,25 @@ html,body{
   right: 0;
   font-size: 30px;
 }
+
+
+/* Clearfix */
+.clearfix:before,
+.clearfix:after {
+  content: " ";
+  display: table;
+}
+.clearfix:after {
+  clear: both;
+}
+
+.flash {
+  color: #fff;
+  text-align: center;
+  &__alert{
+    background-color: skyblue;
+  }
+  &__notice {
+    background-color: skyblue;
+  }
+}
