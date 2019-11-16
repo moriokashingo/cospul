@@ -54,8 +54,7 @@ class CospulsController < ApplicationController
     @keyword = params[:search]
     search_tag = GutentagTag.find_by(name: params[:search])
     if search_tag.present?
-      tag_ids = GutentagTagging.where(tag_id: search_tag.id).select(:taggable_id)
-      @cospuls = Cospul.where(id: tag_ids).post_includes.set_page(params[:page])
+      @cospuls = Cospul.tagged_with(ids: [search_tag.id]).new_posts.post_includes.set_page(params[:page])
     end
 
     @tags = GutentagTag.where('name LIKE(?)', "%#{params[:keyword]}%")
