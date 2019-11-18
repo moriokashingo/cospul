@@ -1,6 +1,6 @@
 class CospulsController < ApplicationController
   before_action :set_cospul     , only:   [:show, :destroy, :edit, :update]
-  before_action :move_to_index  , except: [:index,:show]
+  before_action :move_to_index  , except: [:search,:index,:show]
   before_action :user_id_check  , only:   [:destroy, :edit, :update]
 
   def index
@@ -56,7 +56,7 @@ class CospulsController < ApplicationController
     if search_tag.present?
       @cospuls = Cospul.tagged_with(ids: [search_tag.id]).new_posts.post_includes.set_page(params[:page])
     end
-
+    # インクリメンタルサーチ用
     @tags = GutentagTag.where('name LIKE(?)', "%#{params[:keyword]}%")
     respond_to do |format|
       format.html
