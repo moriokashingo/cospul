@@ -7,5 +7,9 @@ class RakutenController < ApplicationController
     if params[:keyword]
     @items = RakutenWebService::Ichiba::Item.search(keyword: params[:keyword])
     end
+    respond_to do |format|
+      format.html
+      format.json
+    end
   end
 end

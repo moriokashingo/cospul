@@ -60,8 +60,8 @@ password tanaka
 ###  楽天検索
 2枚目のページで
 １つ１つの服のアイテムの詳細を入力することができ、商品のurlを入力すると商品詳細ページでリンクボタンとして表示されます。
-一番下の部分では楽天商品検索APIを使い商品サイトの検索もできます。
-[![Image from Gyazo](https://i.gyazo.com/a959a5787ae41d74bbb80a7542d9234a.gif)](https://gyazo.com/a959a5787ae41d74bbb80a7542d9234a)
+一番下の部分では楽天商品検索APIを使い非同期で商品サイトの検索もできます。
+[![Image from Gyazo](https://i.gyazo.com/e815604acb616d095fa64cc278295102.gif)](https://gyazo.com/e815604acb616d095fa64cc278295102)
 
 自分で投稿した記事は商品詳細ページから、編集ボタンを押すと編集する事ができます
 https://gyazo.com/0e857effef077ef302c9b0155daf0608
