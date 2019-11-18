@@ -2,51 +2,5 @@
   .cospul-detail__create__form
     %h2 CREATE Coordinate's details
     = form_with(model: [@cospul,@cospul_detail] ,url: cospul_cospul_details_path, local: true) do |f|
-      .cospul-detail__text__form
-        %p 商品のブランドや情報、商品購入リンク等を記入してください。
-        - if @cospul_detail.errors.full_messages.any?
-          .somothing-form__errors
-            %h2= "#{@cospul_detail.errors.full_messages.count}件のエラーが発生しました。"
-            %ul
-              - @cospul_detail.errors.full_messages.each do |message|
-                %li= message
-        = f.text_field :head, placeholder: '帽子の詳細を入力してください。',class: 'mt30'
-        = f.text_field :top, placeholder: 'トップスの詳細を入力してください。',class: 'mt30'
-        = f.text_field :inner, placeholder: 'インナーの詳細を入力してください。',class: 'mt30'
-        = f.text_field :bottom, placeholder: 'ボトムスの詳細を入力してください。',class: 'mt30'
-        = f.text_field :shoe, placeholder: '靴の情報を入力してください。',class: 'mt30'
-        .accessories__list
-          %h3 その他のアイテム
-          %p.mt30#accessories__add__btn アクセサリ等、他のアイテムを追加する場合はこちらをクリックしてください。
-          .new__accessories__box
-        .cospul-detail__link__box.mt30
-          = f.submit '投稿する',type: "submit", class: "btn btn--block"
-          = link_to "トップページに戻る", root_path,class: "btn btn--block"
-    .rakuten__box
-      .rakuten__box__search
-        %h3 楽天検索
-        %p アイテムの詳細やリンクを検索する事ができます
-        = form_tag  :new_cospul_cospul_detail, method: :get do
-          = label_tag :keyword, 'キーワード検索'
-          = text_field_tag 'keyword', params[:keyword],class: 'cospul-text'
-          = submit_tag "検索"
-      .rakuten__box__result
-        %table
-          %thead
-            %tr
-              %th 画像
-              %th 商品名
-              %th 価格
-          %tbody
-            .rakuten__box__result__lists
-            - if @items.present?
-              - @items.each do |item|
-                %tr
-                  %td
-                    - if item.small_image_urls.present?
-                      =image_tag "#{item.small_image_urls[0]}"
-                  %td= link_to item.name, "#{item.url}"
-                  %td
-                    = number_with_delimiter(item.price)
-                    円
-
+      = render partial:'shared/cospul_detail_form',locals: { cospul: @cospul,cospul_detail: @cospul_detail ,f: f  }
+    = render partial:'shared/rakuten_search'

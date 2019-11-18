@@ -3,29 +3,9 @@
   .content_inner
     .chip.chip_title
       お気に入り投稿一覧
-    .main-page__pictures
-      - @cospuls.each do |cospul|
-        = link_to  "/cospuls/#{cospul.id}",class: "cospul__link", method: :get do
-          .index__cospul
-            .index__cospul__picture
-              - cospul.cospul_pictures.each_with_index do |cospul, i|
-                = image_tag cospul.picture.url
-            .index__cospul__text
-              .index__cospul__text__inner
-                .index__cospul__text__title
-                  = cospul.title.truncate(13)
-                .index__cospul__text__content
-                  = cospul.content.truncate(13)
-                .index__cospul__text__user
-                  = image_tag("#{cospul.user.image.url}", id: "icon")
-                  = cospul.user.name
-                  .good_btn
-                    = render partial:'likes/like',locals: { cospul: cospul }
-                .index__cospul__text__tag
-                  - if cospul.tags.present?
-                    - cospul.tags.each_with_index do |tag,i|
-                      - if i <= 2
-                        .a
-                          = link_to "##{tag.name}","/tags/#{tag.id}",method: :get
-                      - else
-      = paginate(@cospuls)
+    .cospul-lists__pictures
+      - if @cospuls.blank?
+        %h2 該当するタグ、またはタグを持つcospulは見つかりませんでした。
+      - else
+        = render partial:'shared/cospul_list',locals: { cospuls: @cospuls }
+        = paginate(@cospuls)
