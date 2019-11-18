@@ -1,0 +1,27 @@
+- cospuls.each do |cospul|
+  = link_to  "/cospuls/#{cospul.id}",class: "cospul__link", method: :get do
+    .cospul__list
+      .cospul__list__picture
+        - cospul.cospul_pictures.each_with_index do |cospul, i|
+          = image_tag cospul.picture.url
+      .cospul__list__text
+        .cospul__list__text__inner
+          .cospul__list__text__title
+            = cospul.title.truncate(13)
+          .cospul__list__text__content
+            = cospul.content.truncate(13)
+          .cospul__list__text__user
+            - if cospul.user.image.present?
+              = image_tag("#{cospul.user.image.url}", id: "icon")
+            - else
+              = image_tag("no_icon.png", id: "icon")
+            = cospul.user.name
+            .good_btn
+              = render partial:'likes/like',locals: { cospul: cospul }
+          .cospul__list__text__tag
+            - if cospul.tags.present?
+              - cospul.tags.each_with_index do |tag,i|
+                - if i <= 2
+                  .a
+                    = link_to "##{tag.name}","/tags/#{tag.id}",method: :get
+                - else
