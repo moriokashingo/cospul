@@ -1,0 +1,29 @@
+.cospul-detail__text__form
+  %p 商品のブランドや情報、商品購入リンク等を記入してください。（いずれか１つのアイテムの説明が必要です。）
+  - if cospul_detail.errors.full_messages.any?
+    .somothing-form__errors
+      %h2= "#{cospul_detail.errors.full_messages.count}件のエラーが発生しました。"
+      %ul
+        - cospul_detail.errors.full_messages.each do |message|
+          %li= message
+  = f.text_field :head, placeholder: '帽子の詳細を入力してください。',class: 'mt30'
+  = f.text_field :top, placeholder: 'トップスの詳細を入力してください。',class: 'mt30'
+  = f.text_field :inner, placeholder: 'インナーの詳細を入力してください。',class: 'mt30'
+  = f.text_field :bottom, placeholder: 'ボトムスの詳細を入力してください。',class: 'mt30'
+  = f.text_field :shoe, placeholder: '靴の情報を入力してください。',class: 'mt30'
+  .accessories__list
+    %h3 その他のアイテム
+    %p.mt30#accessories__add__btn アクセサリ等、他のアイテムを追加する場合はこちらをクリックしてください。
+    .old__accessories__box
+      = f.fields_for :accessories, html: {id: "acz"} do |i|
+        .old__accessories
+          .old__accessories__delete
+            = i.hidden_field :id
+            = i.hidden_field :_destroy, data: { id: i.index}
+          .old__accessories__text
+            = i.text_field :name
+            .old__accessories__remove-btn{data: { id: i.index, default: 'default'}} 削除
+    .new__accessories__box
+  .cospul-detail__link__box.mt30
+    = f.submit '投稿する',type: "submit", class: "btn btn--block"
+    = link_to "トップページに戻る", root_path,class: "btn btn--block"

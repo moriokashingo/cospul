@@ -61,12 +61,14 @@
                   %p
                     "その他のアイテム#{i+1}"
                   = accessory.name
-          .watch__user_action
-            .good_btn
-              = render partial:'likes/like',locals: { cospul: @cospul }
-            .url_copy
-              %input#copyTarget{:readonly => "readonly", :type => "text", :value => "https://cospul.herokuapp.com/cospuls/"+"#{@cospul.id}"}/
-              %button{:onclick => "copyToClipboard()",:class => "btn",id: "show_url_btn" } このcospulのURLをコピー
+        - else
+          %p コーディネートの詳細はまだ登録されていません
+        .watch__user_action
+          .good_btn
+            = render partial:'likes/like',locals: { cospul: @cospul }
+          .url_copy
+            %input#copyTarget{:readonly => "readonly", :type => "text", :value => "https://cospul.herokuapp.com/cospuls/"+"#{@cospul.id}"}/
+            %button{:onclick => "copyToClipboard()",:class => "btn",id: "show_url_btn" } このcospulのURLをコピー
   .show__cospul__lower
     .show__cospul__text
       .show__cospul__text__title.mt30
@@ -75,7 +77,10 @@
         = @cospul.content
       .show__cospul__text__user.mt30
         %span 投稿者
-        = image_tag("#{@cospul.user.image.url}", id: "icon")
+        - if @cospul.user.image.present?
+          = image_tag("#{@cospul.user.image.url}", id: "icon")
+        - else
+          = image_tag("no_icon.png", id: "icon")
         = @cospul.user.name
       .show__cospul__text__tag
       - if @cospul.tags.present?

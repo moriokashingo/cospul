@@ -13,7 +13,6 @@ class LikesController < ApplicationController
   end
 
   def show
-    @cospuls = []
     @likes = Like.where(user_id: "#{current_user.id}").pluck(:cospul_id)
     @cospuls = Cospul.where(id: @likes).new_posts.post_includes.set_page(params[:page])
   end

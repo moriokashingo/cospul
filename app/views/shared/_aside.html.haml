@@ -19,7 +19,10 @@
           LIKE's LIST
       %li
         %span
-        = image_tag("#{current_user.image.url}", id: "icon")
+          - if current_user.image.present?
+            = image_tag("#{current_user.image.url}", id: "icon")
+          - else
+            = image_tag("no_icon.png", id: "icon")
         = current_user.name
     %button
       %i.menu_open.fa.fa-bars.fa-lg
@@ -42,9 +45,5 @@
         = link_to new_user_registration_path, method: :get do
           %i.fa.fas.fa-edit.fa-lg
           SIGN UP
-      %li
-        = link_to intro_show_path , method: :get do
-          %i.fas.fa-th-large.fa-lg
-          intoduce
     %button
       %i.menu_open.fa.fa-bars.fa-lg

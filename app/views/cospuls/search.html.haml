@@ -4,39 +4,10 @@
     .chip.chip_title
       = @keyword
       の検索結果
-    .tag__search__form
-      = form_with(url:  search_cospuls_path, method: :get, local: true)  do |f|
-        = f.text_field :search ,placeholder: "気になるタグを検索" ,class: "search__form__text-field"
-        .tag__candidate__box
-          %ul.tag__candidate__box__inner
-        = button_tag type: 'submit', class: 'search__form__button' do
-          =fa_icon "search"
-    .main-page__pictures
+    = render partial:'shared/tag_search'
+    .cospul-lists__pictures
       - if @cospuls.blank?
         %h2 該当するタグ、またはタグを持つcospulは見つかりませんでした。
       - else
-        - @cospuls.each do |cospul|
-          = link_to  "/cospuls/#{cospul.id}",class: "cospul__link", method: :get do
-            .index__cospul
-              .index__cospul__picture
-                - cospul.cospul_pictures.each_with_index do |cospul, i|
-                  = image_tag cospul.picture.url
-              .index__cospul__text
-                .index__cospul__text__inner
-                  .index__cospul__text__title
-                    = cospul.title.truncate(13)
-                  .index__cospul__text__content
-                    = cospul.content.truncate(13)
-                  .index__cospul__text__user
-                    = image_tag("#{cospul.user.image.url}", id: "icon")
-                    = cospul.user.name
-                    .good_btn
-                      = render partial:'likes/like',locals: { cospul: cospul }
-                  .index__cospul__text__tag
-                    - if cospul.tags.present?
-                      - cospul.tags.each_with_index do |tag,i|
-                        - if i <= 2
-                          .a
-                            = link_to "##{tag.name}","/tags/#{tag.id}",method: :get
-                        - else
+        = render partial:'shared/cospul_list',locals: { cospuls: @cospuls }
         = paginate(@cospuls)
