@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
   devise_for :users
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   root 'cospuls#index'
 
   resources :cospuls do
@@ -17,8 +16,8 @@ Rails.application.routes.draw do
   delete '/like/:cospul_id' => 'likes#unlike'   ,as: 'unlike'
   get    '/like/:user_id'   => 'likes#show'     ,as: 'show'
   get    'rakuten_index'    => 'rakuten#index'
-  get    'intro'            => 'intro#show'     ,as: 'intro/show'
-  get    'intro/tetris'     => 'intro#tetris'   ,as: 'intro/tetris'
-  get    'intro/omikuji'    => 'intro#omikuji'     ,as: 'intro/omikuji'
-  get    'intro/kaonashi'   => 'intro#kaonashi' ,as: 'intro/kaonashi'
+  get    'game'             => 'game#show'     ,as: 'game/show'
+  get    'game/tetris'      => 'game#tetris'   ,as: 'game/tetris'
+  get    'game/omikuji'     => 'game#omikuji'  ,as: 'game/omikuji'
+  get    'game/kaonashi'    => 'game#kaonashi' ,as: 'game/kaonashi'
 end
