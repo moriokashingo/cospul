@@ -15,6 +15,7 @@ class CospulsController < ApplicationController
 
   def create
     @cospul = Cospul.create(cospul_params)
+    binding.pry
       if @cospul.save
       redirect_to new_cospul_cospul_detail_path(@cospul.id)
     else
