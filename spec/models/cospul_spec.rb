@@ -5,7 +5,6 @@ RSpec.describe Cospul, type: :model do
   before do
     @user                      = FactoryBot.build(:user)
     @cospul                    = FactoryBot.build(:cospul)
-    @cospul_picture            = FactoryBot.build(:cospul_picture)
     @cospul_no_picture         = FactoryBot.build(:cospul_no_picture)
 
   end
