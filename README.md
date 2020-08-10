@@ -31,7 +31,7 @@
 
 
 # 接続先情報
-- URLhttp://18.176.199.240/
+- URL: http://18.176.29.109/
 - GitURL: https://github.com/moriokashingo/cospul
   - テスト用アカウント等
     - ユーザー１
